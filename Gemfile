@@ -29,3 +29,6 @@ group :production do
   gem 'pg'
   gem 'rails_12factor'
 end
+
+gem 'roo'
+gem "iconv", "~> 1.0.3"
