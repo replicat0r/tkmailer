@@ -18,12 +18,16 @@ group :development do
   gem 'hub', :require=>nil
   gem 'quiet_assets'
   gem 'rails_layout'
+  gem "binding_of_caller"
+  gem 'meta_request'
+
 end
 group :development, :test do
   gem 'pry-rails'
   gem 'pry-rescue'
   gem 'rubocop'
   gem 'sqlite3'
+
 end
 group :production do
   gem 'pg'
@@ -32,3 +36,4 @@ end
 
 gem 'roo'
 gem "iconv", "~> 1.0.3"
+gem 'will_paginate', '~> 3.0.6'

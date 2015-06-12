@@ -1,6 +1,41 @@
+
+<div class="container-fluid">
 <h3>TurnKii Mailer</h3>
 
+<div class="col-sm-12">
 <%= form_tag({:controller => "contacts", :action => "import"}, :method => "post",:multipart => true) do %>
  <%= file_field_tag :file %>
   <%= submit_tag "Import" %>
 <% end %>
+</div>
+
+
+<div class="col-sm-12">
+		<%= will_paginate @contacts %>
+	<table class="table table-bordered contacts ">
+		<thead>
+			<tr>
+				<% @column_names.each do |column| %>
+				<th>
+					<strong><%=column.titleize %></strong>
+				</th>
+				<%end %>
+			</tr>
+		</thead>
+		<tbody>
+			<% @contacts.each do |c| %>
+			<tr>
+	<td><%= c.fname %></td>
+	<td><%= c.lname %></td>
+	<td><%= c.email %></td>
+	<td><%= c.phone %></td>
+			
+
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
+	<%= will_paginate @contacts %>
+</div>
+
+</div>
