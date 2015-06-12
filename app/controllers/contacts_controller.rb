@@ -20,4 +20,8 @@ class ContactsController < ApplicationController
 
     # redirect_to :action => 'index'
   end
+
+  def send_email
+
+  end
 end

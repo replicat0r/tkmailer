@@ -7,7 +7,5 @@ class VisitorsController < ApplicationController
     @column_names -= %w[updated_at created_at id]
   end
 
-  def send_mail
 
-  end
 end
