@@ -1,6 +1,6 @@
 class ContactMailer < ApplicationMailer
 
-	def confirmation_to_landlord(email,fname,email_body)
+	def contact_realtor(email,email_body,fname)
 		@realtor_email = email
 		@fname = fname
 		@body = email_body

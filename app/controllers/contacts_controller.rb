@@ -23,5 +23,12 @@ class ContactsController < ApplicationController
 
   def send_email
 
+    ContactMailer.contact_realtor("replicat0r.misc@gmail.com", "hello", "Tyler").deliver_now
+          flash[:notice] = "Message Send"
+
+    redirect_to root_path
+
+ 
+
   end
 end

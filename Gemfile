@@ -37,3 +37,4 @@ end
 gem 'roo'
 gem "iconv", "~> 1.0.3"
 gem 'will_paginate', '~> 3.0.6'
+gem 'mandrill-api', require: 'mandrill'
