@@ -27,6 +27,8 @@ class ContactMailer < ApplicationMailer
           {name: "video_title", content: "video.title"}
         ]
       }
+      begin
+
       m.messages.send message
       rescue Mandrill::Error => e
         Rails.logger.debug("#{e.class}: #{e.message}")
@@ -46,7 +48,7 @@ class ContactMailer < ApplicationMailer
   def convert_users_to_mandrill_merge_fields(user_ids)
     user_ids.map do |user_id|
       user = Contact.find(user_id)
-      {:rcpt => user.email, :vars => [{:fname => "first_name", :content => user.fname}]}
+      {:rcpt => user.email, :vars => [{:name => "first_name", :content => user.fname}]}
     end
   end
 
