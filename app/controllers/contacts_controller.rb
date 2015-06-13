@@ -12,14 +12,15 @@ class ContactsController < ApplicationController
         redirect_to root_path
       end
     else
-      flash[:notice] = "No File Imported"
+      flash[:error] = "File Upload Slot Empty"
 
-      redirect_to :action => 'index'
+      redirect_to root_path
     end
 
 
     # redirect_to :action => 'index'
   end
+
 
   def send_email
     #user_list_id = Contact.pluck(:id)
@@ -27,18 +28,21 @@ class ContactsController < ApplicationController
     #puts email_list
 
     ContactMailer.contact_realtor.deliver_now
-    #flash[:notice] = "Message Send"
+    flash[:notice] = "Email Send to all contacts on the list"
 
     redirect_to root_path
 
 
 
   end
-  private
-  def convert_id_to_email(user_ids)
-    user_ids.map do |user_id|
-      user = Contact.find(user_id)
-      {:email => user.email}
-    end
+
+  def purge_db
+    contacts = Contact.all
+    contacts.delete_all
+
+    flash[:success] = "All Data Purged!"
+    redirect_to root_path
+
+
   end
 end

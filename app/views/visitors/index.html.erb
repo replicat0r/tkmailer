@@ -1,17 +1,26 @@
 
 <div class="container-fluid">
-<h3>TurnKii Mailer</h3>
+<h3 class="text-center">TurnKii Mailer</h3>
+
+<p></p>
+<p></p>
 
 <div class="col-sm-12">
 <%= form_tag({:controller => "contacts", :action => "import"}, :method => "post",:multipart => true) do %>
  <%= file_field_tag :file %>
-  <%= submit_tag "Import" %>
+  <%= submit_tag "Import" ,class: "btn btn-info" %>
 <% end %>
+<%= link_to("DELETE EVERYONE ON THE LIST", purge_db_contacts_path , method: :delete ,class: "btn btn-danger pull-left delete") %>
+<div class="col-sm-4 pull-right">
+<button class="btn btn-warning pull-right wanttosend">I would like to send email</button>
+<%= link_to("SEND EMAIL TO EVERYONE ON THE LIST!!", send_email_contacts_path, class: "send btn btn-danger pull-right disabled") %>
+
+</div>
+
 </div>
 
 
 
-<%= link_to("send email", send_email_contacts_path) %>
 <div class="col-sm-12">
 		<%= will_paginate @contacts %>
 	<table class="table table-bordered contacts ">

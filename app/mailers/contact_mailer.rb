@@ -16,7 +16,7 @@ class ContactMailer < ApplicationMailer
         m = Mandrill::API.new ENV['MANDRILL_API_KEY']
       message = {
         :from_name=> "Michael G",
-        :from_email=>"replicat0r.misc@gmail.com",
+        :from_email=>"t6xinfinity@gmail.com",
         :to=> recipients,
         :subject=> "New in",
         :html=> body,

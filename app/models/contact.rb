@@ -1,4 +1,7 @@
 class Contact < ActiveRecord::Base
+
+
+
   def self.import(file)
     spreadsheet = open_spreadsheet(file)
     header = spreadsheet.row(1)
