@@ -22,13 +22,23 @@ class ContactsController < ApplicationController
   end
 
   def send_email
+    #user_list_id = Contact.pluck(:id)
+    #email_list = convert_id_to_email(user_list_id)
+    #puts email_list
 
-    ContactMailer.contact_realtor("replicat0r.misc@gmail.com", "hello", "Tyler").deliver_now
-          flash[:notice] = "Message Send"
+    ContactMailer.contact_realtor.deliver_now
+    #flash[:notice] = "Message Send"
 
     redirect_to root_path
 
- 
 
+
+  end
+  private
+  def convert_id_to_email(user_ids)
+    user_ids.map do |user_id|
+      user = Contact.find(user_id)
+      {:email => user.email}
+    end
   end
 end
