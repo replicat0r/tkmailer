@@ -13,12 +13,12 @@ class ContactMailer < ApplicationMailer
         render_to_string("contact_mailer/contact.html.erb",
                          :layout => false)
 
-        m = Mandrill::API.new ENV['MANDRILL_API_KEY']
+        m = Mandrill::API.new ENV['MAILER_MANDRILL_API_KEY']
       message = {
         :from_name=> "Michael G",
-        :from_email=>"t6xinfinity@gmail.com",
+        :from_email=>"michaelg6xt@gmail.com",
         :to=> recipients,
-        :subject=> "New in",
+        :subject=> "Looking for real estate advice",
         :html=> body,
         :merge_vars => merge_vars,
         :preserve_recipients => false,

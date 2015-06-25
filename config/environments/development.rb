@@ -33,8 +33,8 @@ Rails.application.configure do
     :domain             => 'google.com', #you can also use google.com
     authentication: "plain",
     enable_starttls_auto: true,
-    :user_name          => ENV['MANDRILL_USERNAME'],
-    :password           => ENV['MANDRILL_PASSWORD']
+    :user_name          => ENV['MAILER_MANDRILL_USERNAME'],
+    :password           => ENV['MAILER_MANDRILL_PASSWORD']
   }
   # ActionMailer Config
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
